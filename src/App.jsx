@@ -6,14 +6,16 @@ import moviesFromServer from './api/movies.json';
 export const App = () => {
   const [query, setQuery] = useState('');
   const getPreparedMovies = (movies, pattern) => {
+    const normalizedQuery = pattern.trim().toLowerCase();
+
     return movies.filter(
       movie =>
-        movie.title.toLowerCase().includes(pattern.trim().toLowerCase()) ||
-        movie.description.toLowerCase().includes(pattern.trim().toLowerCase()),
+        movie.title.toLowerCase().includes(normalizedQuery) ||
+        movie.description.toLowerCase().includes(normalizedQuery),
     );
   };
 
-  const hendlerChange = e => setQuery(e.target.value);
+  const hendlerChange = event => setQuery(event.target.value);
   const visibleMovies = getPreparedMovies(moviesFromServer, query);
 
   return (
