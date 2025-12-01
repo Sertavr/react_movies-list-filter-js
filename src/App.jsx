@@ -15,7 +15,7 @@ export const App = () => {
     );
   };
 
-  const hendlerChange = event => setQuery(event.target.value);
+  const handlerChange = event => setQuery(event.target.value);
   const visibleMovies = getPreparedMovies(moviesFromServer, query);
 
   return (
@@ -35,7 +35,7 @@ export const App = () => {
                 className="input"
                 placeholder="Type search word"
                 value={query}
-                onChange={hendlerChange}
+                onChange={handlerChange}
               />
             </div>
           </div>
